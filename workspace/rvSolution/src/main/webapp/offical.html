@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/rvSolution/style.css">
+</head>
+
+<body>
+    <div class="full">
+        <div id="home">
+            <div id="centerlogo">
+                <img src="/rvSolution/logo.png" alt="">
+            </div>
+
+            <h1 class="col">Welcome To Meri Panchayat</h1>
+            <h2 id="para1" class="col">Official Login</h2>
+            <!-- <h2>Citizen registration</h2> -->
+        </div>
+        <section class="containerforlogin">
+
+            <div id='login-form' class='login-page'>
+                    <form id='register' method="post" action="signServlet"  class='input-group-register'>
+                    	<input type='hidden' name="formtype"  value="offical" > 
+					  
+					  <input type="text" id="name" name="name" value="" class='input-field1' placeholder='Enter User Name'><br>
+					  
+					  <input type="password" id="lname" name="pass" value="" class='input-field1'  placeholder='Enter Password' required><br><br>
+					  <input  class="submit-btn" type="submit" value="Submit">
+					</form>
+            
+           
+            </div>
+
+           
+
+
+        </section>
+    </div>
+</body>
+
+</html>

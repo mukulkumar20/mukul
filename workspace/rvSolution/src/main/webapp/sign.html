@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/rvSolution/style.css">
+</head>
+
+<body>
+
+    <div class="full">
+        <div id="home">
+            <div id="centerlogo">
+                <img src="/rvSolution/logo.png" alt="">
+            </div>
+
+            <h1 class="col">Welcome To Meri Panchayat</h1>
+            <p id="para">Please Register / Sign Up to use the serivices of meri Panchayat App</p>
+            <h2 class="col">Citizen registration</h2>
+            <img src="/rvSolution/lovepik-girl-avatar-png-image_401573261_wh300.png" alt="" id="profile-pic">
+            <label for="myfilelogo">Update image</label>
+            <input name="uploadpic" type="file" accept="image/jpeg , image/png , image/jpg" id="myfilelogo">
+        </div>
+        <section class="containerforsign">
+<div id='login-form' class='login-page'>
+                <form id='register' method="post" class='input-group-register' onsubmit=" return myfun()" action="signServlet">
+                    <div id="ut">
+                    <!-- <label for="usertype">Select user Type:</label> -->
+
+                    <select name="usertype" id="usertype" >
+                       
+                        <option value="1">Citizen</option>
+                        <option value="2">NGO</option>
+                        <option value="3">Organization</option>
+                    
+                    </select>
+                    <input type='hidden' name= "formtype"  value="signUp" >     
+                    </div>
+                    <input type='text' class='input-field' placeholder='First Name' id="user_name" name="name">
+                    <div id="message1"></div>
+                    <!-- <input type='text' class='input-field' placeholder='Last Name ' required> -->
+                    <input name="email" type='email' class='input-field' placeholder='Email Id' required>
+                   
+                    <input name="number" type='number' class='input-field' id="mobile" placeholder='Enter Mobile Number' value="">
+                    <div id="message2"></div>
+                    <!-- <input type='password' class='input-field' placeholder='Confirm Password' required> -->
+                    <!-- <input type='checkbox' class='check-box'><span>I agree to the terms and conditions</span> -->
+                    <input name="pass" type='password' class='input-field' id="password" placeholder='Enter Password'>
+                    <div id="message"></div>
+                    <input name="submitform" type="submit" name="" class="submit-btn" value="Submit">
+                </form>
+            </div>
+            
+                <!-- <button type='submit' class='submit-btn'>Submit</button> -->
+                
+            
+            
+        </section>
+    </div>
+
+    <script>
+        function myfun(){
+            console.log("12");
+            var a = document.getElementById("mobile").value;
+            if(a==""){
+                document.getElementById("message2").innerHTML="** please fill mobile number";
+                return false;
+            }
+            if(isNaN(a)){
+                document.getElementById("message2").innerHTML="** please enter the numeric value";
+                return false ;
+            }
+            if(a.length<10){
+                document.getElementById("message2").innerHTML="** Mobile Number must be 10 digit";
+                return false ;
+            }
+            if(a.length>10){
+                document.getElementById("message2").innerHTML="** Mobile Number must be 10 digit";
+                return false ;
+            }
+            if((a.charAt(0)!=9) && (a.charAt(0)!=8) && (a.charAt(0)!=7)){
+                document.getElementById("message2").innerHTML="** Mobile number must start with 9 8 7";
+                return false ;
+            }
+              var b= document.getElementById("password").value;
+            if(b.length<8){
+                document.getElementById("message").innerHTML="** Password must be greater than 8 characters";
+                return false;
+            }
+            if(b==""){
+                document.getElementById("message").innerHTML="** Please fill Password";
+                return false;
+            }
+            if(b.length>25){
+                document.getElementById("message").innerHTML="** Password must be smaller than 25 characters";
+                return false;
+            }
+            var c=document.getElementById("user_name").value;
+            if(c.length<3){
+                document.getElementById("message1").innerHTML="** user name must be 3 characters";
+                return false;
+            }
+            if(c==""){
+                document.getElementById("message1").innerHTML="**please fill username";
+                return false;
+            }
+            // if(c!=(isNaN)){
+            //     document.getElementById("message1").innerHTML="**please fill valid username";
+            //     return false;
+            // }
+
+
+
+
+        }
+        </script>
+
+        <script>
+            let profilePic = document.getElementById("profile-pic");
+            let inputFile = document.getElementById("myfilelogo");
+            inputFile.onchange = function(){
+                profilePic.src = URL.createObjectURL(inputFile.files[0]);
+            }
+        </script>
+        
+       <!--  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="alert/dist/sweetalert.css"> -->
+       
+        
+
+</body>
+
+</html>

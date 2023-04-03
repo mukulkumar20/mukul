@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/rvSolution/style.css">
+</head>
+
+<body>
+    <div class="full">
+        <div id="home">
+            <div id="centerlogo">
+                <img src="/rvSolution/logo.png" alt="">
+            </div>
+
+            <h1 class="col">Welcome To Meri Panchayat</h1>
+            <h2 id="para1" class="col">Citizen Login</h2>
+            <!-- <h2>Citizen registration</h2> -->
+        </div>
+        <section class="containerforlogin">
+            <div id='login-form' class='login-page'>
+                <form  action="signServlet" id='register' class='input-group-register' method="post" onsubmit="return myfun()">
+                 <input type='hidden' name= "formtype"  value="login" >  
+                    <!-- <input type='text' class='input-field' placeholder='Enter User Name' required> -->
+                    <!-- <input type='text' class='input-field' placeholder='Last Name ' required> -->
+                    <!-- <input type='email' class='input-field' placeholder='Email Id' required> -->
+
+                    <input name="number"type='number' class='input-field1' placeholder='Enter Registered Mobile Number' id="number1">
+                    <div id="message4"></div>
+                    <!-- <input type='password' class='input-field' placeholder='Confirm Password' required> -->
+                    <!-- <input type='checkbox' class='check-box'><span>I agree to the terms and conditions</span> -->
+                    <input name="pass"type='password' class='input-field1' placeholder='Enter Password' id="password1">
+                    <div id="message"></div>
+                    <input type="submit" name="submitform" class="submit-btn" value="Submit">
+                </form>
+            </div>
+ </section>
+    </div>
+<script>
+     function myfun(){
+            console.log("12");
+            var a = document.getElementById("number1").value;
+            if(a==""){
+                document.getElementById("message4").innerHTML="** please fill mobile number";
+                return false;
+            }
+            if(isNaN(a)){
+                document.getElementById("message4").innerHTML="** please enter the numeric value";
+                return false ;
+            }
+            if(a.length<10){
+                document.getElementById("message4").innerHTML="** Mobile Number must be 10 digit";
+                return false ;
+            }
+            if(a.length>10){
+                document.getElementById("message4").innerHTML="** Mobile Number must be 10 digit";
+                return false ;
+            }
+            if((a.charAt(0)!=9) && (a.charAt(0)!=8) && (a.charAt(0)!=7)){
+                document.getElementById("message4").innerHTML="** Mobile number must start with 9 8 7";
+                return false ;
+            }
+        }
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/rvSolution/style.css">
+</head>
+
+<body>
+    <div id="loginform">
+        <div class="container10">
+            <section class="container11">
+                <h1 id="add"> <a href="#">Add circular</a> </h1><br>
+                <h1 id="view"> <a href="/rvSolution/views.jsp">View Circulars</a></h1>
+            </section>
+            <section class="container12">
+                <nav class="navbar1">
+                    <ul id="heading">
+                        <li>
+                            <h1>Meri Panchayat</h1>
+                        </li>
+                        <!-- <li><Button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'"
+                        style="width: auto;">login</Button> -->
+                        </li>
+                    </ul>
+                </nav>
+                <h1 class="navbar1">Add circular</h1>
+                <form action="circularServlet" onsubmit=" return myfun2()" method="post">
+                    <table class="tabel1">
+                        <tr>
+                            <td>Circular No:</td>
+                            <td><input type="text" id="circularid" name="circularno">
+                                <div id="message11"></div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Subject :</td>
+                            <td><input type="text" name=subject></td>
+                        </tr>
+                        <tr>
+                            <td>Category :</td>
+                            <td>
+                                <select name="usertype" class="usertype1">
+                                    
+                                    <option value="1">General Purpose</option>
+                                    <option value="2">Offical Purpose</option>
+                                    <option value="3">Transfer Purpose</option>
+
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Filelanguage :</td>
+                            <td><select name="userlang" class="usertype1" >
+                                    <option value="">Label Select</option>
+                                    <option value="1">Hindi</option>
+                                    <option value="2">English</option>
+
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>FileDescription :</td>
+                            <td><textarea name="filedesc" id="" cols="110" rows="5"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Issued On :</td>
+                            <td><input type="date" name="issuedon"></td>
+                        </tr>
+                        <tr>
+                            <td>Issued By :</td>
+                            <td><input type="text" name="issuedby"></td>
+                        </tr>
+                        <!--  <tr>
+                            <td>Label Attach file :</td>
+                            <td><input type="file" id="myFile" name="filename"></td>
+                        </tr>  -->
+
+                    </table>
+                    <input type="submit" name="submitform" class="submit-btn1" value="Label Save">
+                </form>
+            </section>
+        </div>
+    </div>
+    <script>
+        function myfun2() {
+            var ab = document.getElementById("circularid").value;
+            if (ab == "") {
+                document.getElementById("message11").innerHTML = "** please fill circular number";
+                return false;
+            }
+            if (ab.length < 5) {
+                document.getElementById("message11").innerHTML = "** circular number must be 5 digit";
+                return false;
+            }
+            if (ab.length > 5) {
+                document.getElementById("message11").innerHTML = "** circular number must be 5 digit";
+                return false;
+            }
+        }
+    </script>
+    <script>
+        var modal = document.getElementById('loginform');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
